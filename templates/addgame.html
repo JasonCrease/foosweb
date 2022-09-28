@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form, render_field, render_form_row %}
+
+{% block content %}
+
+<form method="post">
+<!--    {{ form.csrf_token }}-->
+    {{ render_form_row([form.r1, form.r2, form.red_points, form.blue_points, form.b1, form.b2, ]) }}
+    {{ render_form_row([form.submit]) }}
+</form>
+
+{% endblock %}

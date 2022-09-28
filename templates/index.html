@@ -1,0 +1,13 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Foosball records</h1>
+    <p>What's been done.</p>
+    <ul>
+        <li><a href="{{ url_for('games') }}">Games</a></li>
+        <li><a href="{{ url_for('players') }}">Players</a></li>
+        <li><a href="{{ url_for('addgame') }}">Add game</a></li>
+        <li><a href="{{ url_for('addplayer') }}">Add player</a></li>
+    </ul>
+{% endblock %}

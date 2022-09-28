@@ -1,0 +1,42 @@
+{%- extends "base.html" %}
+
+{% block content %}
+    <table class="table" id="gamesTable">
+        <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Blue 1</th>
+            <th scope="col">Blue 2</th>
+            <th scope="col">Score</th>
+            <th scope="col">Red 1</th>
+            <th scope="col">Red 2</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for game in games %}
+        <tr>
+            <td>{{ game.date.strftime("%Y %b %d %H:%M") }}</td>
+            <td>{{ game.blue_p1.name }}</td>
+            <td>{{ game.blue_p2.name }}</td>
+            <td>{{ game.blue_points }} - {{ game.red_points }}</td>
+            <td>{{ game.red_p1.name }}</td>
+            <td>{{ game.red_p2.name }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<script>
+$(document).ready(function(){
+$('#gamesTable').DataTable( {
+    paging: true,
+    ordering: false,
+    "info": true,
+    "order": [[ 0, 'desc' ]],
+    "lengthMenu": [ [25, 100, -1], [25, 100, "All"] ],
+    } );
+    });
+</script>
+
+{% endblock %}
+
