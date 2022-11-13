@@ -52,6 +52,7 @@ def insert_games(csv_df: pd.DataFrame):
                 game_date = game_date - datetime.timedelta(days=1)
 
         session.commit()
+        session.flush()
 
 
 def main():

@@ -12,7 +12,11 @@
         {% for player in players %}
         <tr>
             <th scope="row">{{ player.name }}</th>
+            {% if player.id in elos %}
             <td scope="row">{{'%0.1f'| format(elos[player.id]|float) }}</td>
+            {% else %}
+            <td scope="row">{{ 1000 }}</td>
+            {% endif %}
         </tr>
         {% endfor %}
         </tbody>

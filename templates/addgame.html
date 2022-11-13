@@ -4,8 +4,14 @@
 {% block content %}
 
 <form method="post">
-<!--    {{ form.csrf_token }}-->
-    {{ render_form_row([form.r1, form.r2, form.red_points, form.blue_points, form.b1, form.b2, ]) }}
+    <!--    {{ form.csrf_token }}-->
+    {{ render_form_row([form.b1, form.b2, form.blue_points, form.red_points, form.r1, form.r2]) }}
+    {% if error_message %}
+    <p>Error. Could not add game. {{ error_message }}</p>
+    {% endif %}
+    {% if success_message %}
+    <p>Game added successfully. {{ success_message }}</p>
+    {% endif %}
     {{ render_form_row([form.submit]) }}
 </form>
 

@@ -11,9 +11,17 @@ from models import Game
 class CalculateElos:
     def __init__(self, engine: Engine):
         self.engine = engine
+    #
+    #
+    # def get_elos(self):
+    #     train_data = self.convert_to_goals_list()
+
 
     def get_elos(self):
         train_data = self.convert_to_goals_list()
+
+        if train_data is None or train_data.empty:
+            return {}
 
         player_names = list(train_data.iloc[:, 1:].columns)
         x_train = train_data[player_names]
